@@ -9,7 +9,7 @@ import java.util.Stack;
  * @Date 2019/11/8  13:36
  * @Veresion 1.0
  */
-public class Test1108 {
+public class Test1108i {
     //读入一个字符串，输出字符串中连续最长的数字
    /*private static String maxString(String n){
        int count=0;
