@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+/**
+ * @ClassName Test1115
+ * @Desc TODO
+ * @Auther 28893
+ * @Date 2019/11/14  20:19
+ * @Veresion 1.0
+ */
+public class Test1115 {
+    //末尾0的个数
+   /* public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int result=0;
+        while(n>0){
+            result+=n/5;
+            n=n/5;
+        }
+        System.out.println(result);
+    }*/
+
+    //数字颠倒
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        StringBuilder str=new StringBuilder();
+        while(n>=10){
+            str.append(n%10);
+            n=n/10;
+        }
+        str.append(n);
+        System.out.println(str.toString());
+    }
+}
