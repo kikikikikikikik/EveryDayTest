@@ -1,0 +1,54 @@
+/**
+ * @ClassName Test1118
+ * @Desc TODO
+ * @Auther 28893
+ * @Date 2019/11/17  19:33
+ * @Veresion 1.0
+ */
+public class Test1118 {
+    //无缓存交换
+    /*public static int[] exchangeAB(int[] AB) {
+        // write code here
+        int[] result=new int[AB.length];
+        for(int i=0;i<AB.length;i++){
+            result[i]=AB[i];
+        }
+        result[0]=result[1]^result[0];
+        result[1]=result[1]^result[0];
+        result[0]=result[1]^result[0];
+        return result;
+    }
+
+    public static void main(String[] args) {
+        int[] ch={1,5,8,0,3};
+        int[] re=exchangeAB(ch);
+        for(int i=0;i<re.length;i++){
+            System.out.println(re[i]);
+        }
+    }*/
+    //生成格雷码
+    public static void main(String[] args) {
+        String[] re=getGray(3);
+        for(String s:re){
+            System.out.println(s);
+        }
+    }
+    private static String[] getGray(int n) {
+        double len=Math.pow(2, n);
+        String[] s=new String[(int)len];
+        if(n==1){
+           s[0]="0";
+           s[1]="1";
+        }
+        else {
+            String[] temp=getGray(n-1);
+            for(int i=0;i<temp.length;i++){
+                s[i]="0"+temp[i];
+            }
+            for(int i=0;i<temp.length;i++){
+                s[i+temp.length]="1"+temp[temp.length-i-1];
+            }
+        }
+        return s;
+    }
+}
