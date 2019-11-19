@@ -26,12 +26,13 @@ public class Test1118 {
             System.out.println(re[i]);
         }
     }*/
-    //生成格雷码
+    //生成格雷码 利用递归
     public static void main(String[] args) {
         String[] re=getGray(3);
         for(String s:re){
             System.out.println(s);
         }
+
     }
     private static String[] getGray(int n) {
         double len=Math.pow(2, n);
