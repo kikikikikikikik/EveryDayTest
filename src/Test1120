@@ -1,0 +1,88 @@
+import java.util.Arrays;
+import java.util.Scanner;
+/**
+ * @ClassName Test1120
+ * @Desc TODO
+ * @Auther 28893
+ * @Date 2019/11/20  10:25
+ * @Veresion 1.0
+ */
+public class Test1120 {
+    //跟奥巴马一起编程 画正方形
+/*    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNext()){
+         int a=sc.nextInt();
+         String s=sc.nextLine();
+         char c=s.charAt(1);
+         square(a, c);
+        }
+    }
+    private static void square(int a, char c) {
+        int col=0;
+        //先输出第一行
+        for (int i = 0; i < a; i++) {
+            System.out.print(c);
+        }
+        System.out.println();
+        col++;
+        //输出中间的所有行
+        while(col<(a/2)-1){
+            System.out.print(c);
+            for(int j=1;j<a-1;j++){
+                System.out.print(" ");
+            }
+            System.out.println(c);
+            col++;
+        }
+        //对于奇数列的单独处理
+        if(a%2!=0){
+            System.out.print(c);
+            for(int j=1;j<a-1;j++){
+                System.out.print(" ");
+            }
+            System.out.println(c);
+        }
+        //输出最后一行
+        for (int i = 0; i < a; i++) {
+            System.out.print(c);
+        }
+    }*/
+//超长正整数相加
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        String s1=sc.nextLine();
+        String s2=sc.nextLine();
+        String result=maxAdd(s1,s2);
+        System.out.println(result);
+    }
+    private static String maxAdd(String s1, String s2) {
+      char[] ch1=new StringBuffer(s1).reverse().toString().toCharArray();
+      char[] ch2=new StringBuffer(s2).reverse().toString().toCharArray();
+      int[] result=new int[(ch1.length>ch2.length?ch1.length:ch2.length)+1];
+
+      for(int i=0;i<result.length;i++){
+          int temp=result[i];
+          if(i<ch1.length){
+              temp+=ch1[i]-'0';
+          }
+          if(i<ch2.length){
+              temp+=ch2[i]-'0';
+          }
+          if(temp>9){
+              result[i+1]=1;
+              temp=temp-10;
+          }
+          result[i]=temp;
+      }
+      int head=result.length-1;
+      StringBuffer sb=new StringBuffer();
+      if(result[head]==0){
+          head--;
+      }
+      for(int i=head;i>=0;i--){
+          sb.append(result[i]);
+      }
+      return sb.toString();
+    }
+}
