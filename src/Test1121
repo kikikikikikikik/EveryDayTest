@@ -1,0 +1,84 @@
+import java.util.Scanner;
+
+/**
+ * @ClassName Test1121
+ * @Desc TODO
+ * @Auther 28893
+ * @Date 2019/11/20  19:55
+ * @Veresion 1.0
+ */
+public class Test1121 {
+//最小组合数
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int[] re=new int[10];
+        while(sc.hasNext()){
+            for(int i=0;i<re.length;i++){
+                re[i]=sc.nextInt();
+            }
+            minNum(re);
+        }
+    }
+    private static void minNum(int[] re) {
+        int len=0;
+        for(int i=0;i<re.length;i++){
+            len+=re[i];
+        }
+        int k=0;
+        int[] result=new int[len];
+        for(int i=0;i<re.length;i++){
+            for(int j=0;j<re[i];j++){
+                result[k++]=i;
+            }
+        }
+        int j=0;
+        if(result.length==1){
+            System.out.println(result[0]);
+
+        }
+        if(result[0]==0){
+            while(result[j]==0){
+                j++;
+            }
+            System.out.print(result[j]);
+            for(int m=0;m<j;m++){
+                System.out.print(result[m]);
+            }
+            j++;
+            while(j<result.length){
+                System.out.print(result[j++]);
+            }
+        }
+    }
+    //尼科彻斯定理
+   /* public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        while(sc.hasNext()){
+            int n=sc.nextInt();
+            NikChes(n);
+        }
+    }
+    private static void NikChes(int n) {
+        int[] result=new int[n];
+        if(n==1){
+            System.out.println(n);
+        }
+        for(int j=1;j<n*n*n;j+=2){
+            int i;
+            int k=j;
+            int sum=0;
+            for(i=0;i<n;i++){
+                result[i]=k;
+                k=k+2;
+                sum+=result[i];
+            }
+            if(n*n*n==sum){
+                for(int m=0;m<n-1;m++){
+                    System.out.print(result[m]+"+");
+                }
+                System.out.println(result[n-1]);
+                return;
+            }
+        }
+    }*/
+}
