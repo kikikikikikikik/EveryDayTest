@@ -1,0 +1,39 @@
+import java.util.Scanner;
+
+/**
+ * @ClassName Test1122
+ * @Desc TODO
+ * @Auther 28893
+ * @Date 2019/11/22  13:39
+ * @Veresion 1.0
+ */
+public class Test1122 {
+    //另类加法
+    public int addAB(int A, int B) {
+        // write code here
+        int sum;
+        int carry;
+        do{
+            sum=A^B;
+            carry=(A&B)<<1;
+            A=sum;
+            B=carry;
+        }while(B!=0);
+        return sum;
+    }
+    //饥饿的小易
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int x=sc.nextInt();
+        System.out.println(searchFood(x));
+    }
+    private static int searchFood(int x) {
+        int count=0;
+        while(x!=0&&count<=300000){
+            x=(2*x+1)%1000000007;
+                count++;
+        }
+        int res=(count+2)/3;
+        return res>100000?-1:res;
+    }
+}
