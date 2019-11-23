@@ -1,0 +1,63 @@
+import java.util.*;
+
+/**
+ * @ClassName Test1123
+ * @Desc TODO
+ * @Auther 28893
+ * @Date 2019/11/22  19:30
+ * @Veresion 1.0
+ */
+public class Test1123 {
+    //洗牌
+   /* public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        while(sc.hasNext()){
+             int group=sc.nextInt();
+             int[][] team=new int[group][];
+             for(int i=0;i<group;i++){
+                 int num=sc.nextInt();
+                 int time=sc.nextInt();
+                 int[] re=new int[2*num];
+                 for(int j=0;j<2*num;j++){
+                     re[j]=sc.nextInt();
+                 }
+                 for(int times=0;times<time;times++){
+                     ArrayList<Integer> list=new ArrayList<>(re.length);
+                     for(int j=0;j<re.length/2;j++){
+                         list.add(re[j]);
+                         list.add(re[j+re.length/2]);
+                     }
+                     for(int j=0;j<re.length;j++){
+                         re[j]=list.get(j);
+                     }
+                 }
+                 for(int a=0;a<num*2-1;a++){
+                     System.out.print(re[a]+" ");
+                 }
+                 System.out.println(re[num*2-1]);
+             }
+        }
+    }*/
+   //统计同成绩学生人数
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        while(sc.hasNext()){
+            int N=sc.nextInt();
+            int[] re=new int[N];
+            for(int i=0;i<N;i++){
+                re[i]=sc.nextInt();
+            }
+            int dest=sc.nextInt();
+            Map<Integer,Integer> map=new HashMap<>();
+            for(int i=0;i<N;i++){
+                int time=map.getOrDefault(re[i],0);
+                map.put(re[i],time+1);
+            }
+            for(int k:map.keySet()){
+                if(k==dest){
+                    System.out.println(map.get(k));
+                }
+            }
+        }
+    }
+}
