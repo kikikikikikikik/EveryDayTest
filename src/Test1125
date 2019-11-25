@@ -1,0 +1,56 @@
+import javax.naming.directory.SearchControls;
+import java.security.Key;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+/**
+ * @ClassName Test1125
+ * @Desc TODO
+ * @Auther 28893
+ * @Date 2019/11/24  19:40
+ * @Veresion 1.0
+ */
+public class Test1125 {
+    //DNA序列
+ /*   public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        while(sc.hasNext()){
+        String s=sc.nextLine();
+        int n=sc.nextInt();
+            System.out.println(Search(s,n));
+        }
+    }
+    private static String Search(String s, int n) {
+        Map<String,Integer> map=new HashMap<>();
+        int max=0;
+        String result="";
+        for(int i=0;i+n<s.length();i++) {
+            int count = 0;
+            String sub = s.substring(i, i + n);
+            for (int j = 0; j <=sub.length(); j++) {
+                if ((sub.charAt(j) == 'G') || (sub.charAt(j) == 'C')) {
+                    count++;
+                }
+            }
+            if (count > max) {
+                max=count;
+                result=sub;
+            }
+        }
+        return result;
+    }*/
+ //百万富翁问题
+    public static void main(String[] args) {
+        int mill=10;//百万富翁
+        int poor=1;
+        int t=1;//表示穷人每天给出的钱
+        for(int i=1;i<30;i++){
+            mill+=10;
+            t=t*2;
+            poor+=t;
+        }
+        System.out.println(mill);
+        System.out.println(poor);
+    }
+}
