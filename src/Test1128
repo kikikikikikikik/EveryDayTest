@@ -1,0 +1,97 @@
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+
+/**
+ * @ClassName Test1128
+ * @Desc TODO
+ * @Auther 28893
+ * @Date 2019/11/27  19:32
+ * @Veresion 1.0
+ */
+public class Test1128 {
+    //微信红包
+  /*  public static int getValue(int[] gifts, int n) {
+        // write code here
+        Map<Integer,Integer> map=new HashMap<>();
+        for(int i=0;i<n;i++){
+            int count=map.getOrDefault(gifts[i],0);
+            map.put(gifts[i],count+1);
+        }
+        Set set=map.keySet();
+       *//* Iterator<Integer> it=set.iterator();
+        while(it.hasNext()){
+            int key= it.next();
+            if(map.get(key)>=n/2){
+                return key;
+            }
+        }*//*
+        for(int key:map.keySet()){
+            if(map.get(key)>n/2){
+                return key;
+            }
+        }
+        return -1;
+    }
+    public static void main(String[] args) {
+        System.out.println(getValue(new int[]{1,2,3,2,2},5));
+    }*/
+    //链表分割
+    
+    public ListNode partition(ListNode pHead, int x) {
+        // write code here
+        ListNode left=pHead;
+        ListNode right=pHead;
+        ListNode node1=pHead;
+        while(right.val!=x){
+            right=right.next;
+        }
+        ListNode node2=right;
+        while(right.next!=null){
+        while(left.val<x){
+            node1=left;
+            left=left.next;
+        }
+        while(right.val>=x){
+            node2=right;
+            right=right.next;
+        }
+        ListNode n=right;
+        node1.next=right;
+        right.next=left.next;
+        node2.next=left;
+        left.next=n.next;
+        ListNode temp=left;
+        left=right;
+        right=temp;
+    }
+    return pHead;
+    }
+    public ListNode partition(ListNode pHead, int x) {
+        ListNode max = new ListNode(0);
+        ListNode maxHead = max;
+        ListNode min = new ListNode(0);
+        ListNode minHead = min;
+        while (pHead != null) {
+            if (pHead.val < x) {
+                min.next = pHead;
+                min = min.next;
+            } else {
+                max.next = pHead;
+                max = max.next;
+            }
+            pHead = pHead.next;
+        }
+        max.next=null;
+        min.next=maxHead.next;
+        return minHead.next;
+    }
+    class ListNode {
+        int val;
+        ListNode next = null;
+        ListNode(int val) {
+            this.val = val;
+        }
+    }
+}
