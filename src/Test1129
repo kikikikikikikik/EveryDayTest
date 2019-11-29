@@ -1,0 +1,50 @@
+import com.sun.org.apache.xpath.internal.operations.String;
+import java.util.*;
+
+/**
+ * @ClassName Test1129
+ * @Desc TODO
+ * @Auther 28893
+ * @Date 2019/11/29  12:48
+ * @Veresion 1.0
+ */
+public class Test1129 {
+    //统计每个月兔子的总数
+    /*public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int month=sc.nextInt();
+        System.out.println(getTotalCount(month));
+    }
+
+    private static int getTotalCount(int month) {
+        if(month==1){
+            return 1;
+        }
+        if(month==2){
+            return 1;
+        }
+        if(month==3){
+            return 2;
+        }
+        return getTotalCount(month-1)+getTotalCount(month-2);
+    }*/
+    //最难的问题
+    /*public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        while(sc.hasNext()){
+            java.lang.String s=sc.nextLine();
+            char[] array=s.toCharArray();
+            for(int i=0;i<s.length();i++){
+                if(s.charAt(i)==' '){
+                    array[i]=(char)s.charAt(i);
+                }
+                else if(s.charAt(i)<='E'){
+                    array[i]=(char)(s.charAt(i)+21);
+                }
+                else array[i]=(char)(s.charAt(i)-5);
+            }
+            String re=new String(array);
+            System.out.println(re);
+        }
+    }*/
+}
