@@ -1,0 +1,73 @@
+import java.util.LinkedList;
+import java.util.Scanner;
+
+/**
+ * @ClassName Test1130
+ * @Desc TODO
+ * @Auther 28893
+ * @Date 2019/11/30  15:24
+ * @Veresion 1.0
+ */
+public class Test1130 {
+    //到底买不买珠子
+  /*  public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        while(sc.hasNext()){
+            String s=sc.nextLine();
+            String n=sc.nextLine();
+            isBuy(s,n);
+        }
+    }
+    private static void isBuy(String dest, String want) {
+        LinkedList<Character> list=new LinkedList<>();
+        for(int i=0;i<dest.length();i++){
+            list.add(dest.charAt(i));
+        }
+        int count=0;
+        for(int j=0;j<want.length();j++){
+           for(int k=0;k<list.size();k++){
+               if(list.get(k)==want.charAt(j)){
+                   list.remove(list.get(k));
+                   count++;
+                   break;
+               }
+           }
+        }
+        if(count==want.length()){
+            System.out.println("Yes"+" "+list.size());
+        }
+        else{
+            System.out.println("No"+" "+(want.length()-count));
+        }
+    }*/
+  //链式A+B
+    public ListNode plusAB(ListNode a, ListNode b) {
+        // write code here
+        ListNode result=new ListNode(0);
+        ListNode cur=result;
+        int next=0;
+        int sum=0;
+        while((a!=null)||(b!=null)||(sum!=0)){
+            if(a!=null){
+                sum+=a.val;
+                a=a.next;
+            }
+            if(b!=null){
+                sum+=b.val;
+                b=b.next;
+            }
+            cur.next=new ListNode(sum%10);
+            sum/=10;
+            cur=cur.next;
+        }
+        return result.next;
+    }
+}
+class ListNode {
+    int val;
+    ListNode next = null;
+
+    ListNode(int val) {
+        this.val = val;
+    }
+}
