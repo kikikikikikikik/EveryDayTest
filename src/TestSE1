@@ -1,0 +1,60 @@
+import java.util.*;
+
+/**
+ * @ClassName TestSE1
+ * @Desc TODO
+ * @Auther 28893
+ * @Date 2019/12/1  9:26
+ * @Veresion 1.0
+ */
+public class TestSE1 {
+    //字符串集合
+  /*  public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        while(sc.hasNext()){
+            String s=sc.nextLine();
+            CollectS(s);
+        }
+        sc.close();
+    }
+    private static void CollectS(String s) {
+        List<Character> list=new LinkedList<>();
+        StringBuffer result=new StringBuffer();
+        for(int i=0;i<s.length();i++){
+            if(!list.contains(s.charAt(i))){
+                list.add(s.charAt(i));
+                result.append(s.charAt(i));
+            }
+        }
+        System.out.println(result.toString());
+    }*/
+  //合并两个有序链表
+    public ListNode Merge(ListNode list1,ListNode list2) {
+        if(list1==null){
+            return list2;
+        }
+        if(list2==null){
+            return list1;
+        }
+        ListNode result=new ListNode(0);
+        ListNode cur=result;
+        while((list1!=null)&&(list2!=null)){
+            if(list1.val<=list2.val){
+                cur.next=list1;
+                list1=list1.next;
+            }
+            else{
+                cur.next=list2;
+                list2=list2.next;
+            }
+            cur=cur.next;
+        }
+        if(list1!=null){
+            cur.next=list1;
+        }
+        if(list2!=null){
+            cur.next=list2;
+        }
+        return result.next;
+    }
+}
