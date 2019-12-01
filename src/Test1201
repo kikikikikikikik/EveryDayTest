@@ -1,0 +1,117 @@
+import javax.swing.tree.TreeNode;
+
+import java.util.Scanner;
+
+import static sun.swing.MenuItemLayoutHelper.max;
+
+/**
+ * @ClassName Test1201
+ * @Desc TODO
+ * @Auther 28893
+ * @Date 2019/12/1  14:29
+ * @Veresion 1.0
+ */
+public class Test1201 {
+    //判断二叉树是否为平衡二叉树
+    /*public boolean isBalance(TreeNode root) {
+        // write code here
+        if(root==null){
+            return true;
+        }
+        if(!isBalance(root.left)){
+            return false;
+        }
+        if(!isBalance(root.right)){
+            return false;
+        }
+        if((Height(root.left)-Height(root.right))<=1&&(Height(root.left)-Height(root.right)>=-1)){
+            return true;
+        }
+        return false;
+    }
+    private static int Height(TreeNode root){
+        if(root==null){
+            return 0;
+        }
+        int left=Height(root.left);
+        int right=Height(root.right);
+        return max(left,right)+1;
+    }
+    class TreeNode {
+        int val = 0;
+        TreeNode left = null;
+        TreeNode right = null;
+        public TreeNode(int val) {
+            this.val = val;
+        }
+    }*/
+    //数字分类
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        while(sc.hasNext()){
+            int num=sc.nextInt();
+            int[] ch=new int[num];
+            for(int i=0;i<ch.length;i++){
+                ch[i]=sc.nextInt();
+            }
+            int A1=0;
+            int A2=0;
+            int A3=0;
+            float A4=0;
+            int A5=0;
+            int flag=1;
+            int count=0;
+            for(int i=0;i<ch.length;i++){
+                if((ch[i]%5==0)&&(ch[i]%2==0)){
+                    A1+=ch[i];
+                }
+                if((ch[i]%5==1)){
+                    A2+=flag*ch[i];
+                    flag=(-1)*flag;
+                }
+                if(ch[i]%5==2){
+                    A3++;
+                }
+                if(ch[i]%5==3){
+                    A4+=ch[i];
+                    count++;
+                }
+                if(ch[i]%5==4){
+                    if(A5<ch[i]){
+                        A5=ch[i];
+                    }
+                }
+            }
+            if(A1==0){
+                System.out.print("N"+" ");
+            }
+            else{
+                System.out.print(A1+" ");
+            }
+            if(A2==0){
+                System.out.print("N"+" ");
+            }
+            else{
+                System.out.print(A2+" ");
+            }
+            if(A3==0){
+                System.out.print("N"+" ");
+            }
+            else{
+                System.out.print(A3+" ");
+            }
+            if(A4==0){
+                System.out.print("N"+" ");
+            }
+            else{
+                System.out.printf("%.1f ",A4/count);
+            }
+            if(A5==0){
+                System.out.print("N"+" ");
+            }
+            else{
+                System.out.print(A5+" ");
+            }
+        }
+    }
+}
