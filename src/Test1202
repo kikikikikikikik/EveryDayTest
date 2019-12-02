@@ -1,0 +1,83 @@
+import java.util.*;
+
+/**
+ * @ClassName Test1202
+ * @Desc TODO
+ * @Auther 28893
+ * @Date 2019/12/2  9:03
+ * @Veresion 1.0
+ */
+public class Test1202 {
+    //小易的升级之路
+ /*   public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        while(sc.hasNext()){
+            int num=sc.nextInt();
+            int energy=sc.nextInt();
+            sc.nextLine();
+            int[] monster=new int[num];
+            for(int i=0;i<num;i++){
+                monster[i]=sc.nextInt();
+            }
+            System.out.println(Pall(monster,energy));
+        }
+    }
+    private static int Pall(int[] monster, int energy) {
+        for(int i=0;i<monster.length;i++){
+            if(energy>=monster[i]){
+                energy+=monster[i];
+            }
+            else{
+                energy+=gcd(monster[i],energy);
+            }
+        }
+        return energy;
+    }
+
+    private static int gcd(int a, int b) {
+        if (b == 0)
+            return a;
+        return gcd(b, a % b);
+    }*/
+ //最高分是多少
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        List<Integer> list=new ArrayList<>();
+        while(sc.hasNext()){
+            int student=sc.nextInt();
+            int operate=sc.nextInt();
+            int[] score=new int[student];
+            for(int i=0;i<score.length;i++){
+                score[i]=sc.nextInt();
+            }
+            for(int i=0;i<operate;i++){
+                char o=sc.next().charAt(0);
+                int num1=sc.nextInt();
+                int num2=sc.nextInt();
+            /*    if(o=='Q'){
+                    Arrays.sort(score,num1-1,num2-1);
+                    list.add(score[num2-1]);
+                }*/
+            if(o=='Q'){
+                int begin = (num1 < num2 ? num1 : num2) - 1;
+                // 考虑编号从1-N，但是数组下标从0-N-1
+                int end = num1 > num2 ? num1 : num2;
+                int max = score[begin]; // 用于记录最大成绩
+                for(int j = begin; j < end; j++){
+                    if(score[j] > max){
+                        max = score[j];
+                    }
+                }
+                System.out.println(max);
+            }
+                if(o=='U'){
+                    score[num1-1]=num2;
+                }
+            }
+            Iterator<Integer> it=list.iterator();
+            while(it.hasNext()){
+                System.out.println(it.next());
+            }
+        }
+    }
+}
